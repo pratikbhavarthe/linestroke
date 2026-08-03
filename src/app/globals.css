@@ -1,0 +1,275 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Color — Linestroke Limelight and black brand system */
+  --background: #080808;
+  --foreground: #f5f5f2;
+  --card: #0d0d0d;
+  --card-foreground: #f5f5f2;
+  --popover: #0d0d0d;
+  --popover-foreground: #f5f5f2;
+  --primary: #c6f200;
+  --primary-foreground: #080808;
+  --secondary: #151515;
+  --secondary-foreground: #f5f5f2;
+  --muted: #121212;
+  --muted-foreground: #a3a3a0;
+  --accent: #c6f200;
+  --accent-foreground: #080808;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #2a2a2a;
+  --input: #2a2a2a;
+  --ring: #c6f200;
+  --radius: 0.25rem;
+
+  /* Custom — dark-surface sections (hero, closing CTA) */
+  --surface-dark: #080808;
+  --foreground-dark: #f5f5f2;
+
+  /* Fluid type scale */
+  --text-display: clamp(2.75rem, 2rem + 3.5vw, 6rem);
+  --text-h1: clamp(2.25rem, 1.7rem + 2.5vw, 4rem);
+  --text-h2: clamp(1.75rem, 1.4rem + 1.6vw, 2.75rem);
+  --text-h3: clamp(1.25rem, 1.1rem + 0.7vw, 1.5rem);
+  --text-body-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  --text-body: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --text-meta: clamp(0.75rem, 0.72rem + 0.1vw, 0.8125rem);
+
+  /* Fluid spacing for section rhythm */
+  --space-fluid-gutter: clamp(1rem, 0.75rem + 2vw, 2rem);
+  --space-fluid-section: clamp(3rem, 2rem + 6vw, 8rem);
+  --space-fluid-section-lg: clamp(4rem, 2.5rem + 8vw, 10rem);
+  --space-fluid-stack: clamp(1.5rem, 1rem + 3vw, 3rem);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+
+  --color-surface-dark: var(--surface-dark);
+  --color-foreground-dark: var(--foreground-dark);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-jakarta);
+  --font-heading: var(--font-jakarta);
+  --font-mono: var(--font-red-hat-mono);
+
+  --text-display: var(--text-display);
+  --text-display--line-height: 1.02;
+  --text-h1: var(--text-h1);
+  --text-h1--line-height: 1.08;
+  --text-h2: var(--text-h2);
+  --text-h2--line-height: 1.12;
+  --text-h3: var(--text-h3);
+  --text-h3--line-height: 1.2;
+  --text-body-lg: var(--text-body-lg);
+  --text-body-lg--line-height: 1.55;
+  --text-body: var(--text-body);
+  --text-body--line-height: 1.65;
+  --text-meta: var(--text-meta);
+  --text-meta--line-height: 1.4;
+  --text-meta--letter-spacing: 0.08em;
+
+  --spacing-gutter: var(--space-fluid-gutter);
+  --spacing-section: var(--space-fluid-section);
+  --spacing-section-lg: var(--space-fluid-section-lg);
+  --spacing-stack: var(--space-fluid-stack);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+/* shadcn form/interactive primitives (data-slot) carry their own focus ring; only
+   plain custom elements need this fallback outline. */
+:focus-visible:not([data-slot]) {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.sr-only-focusable {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only-focusable:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* react-phone-number-input: restyled to match shadcn Input */
+.phone-field.PhoneInput {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 3rem;
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--color-input);
+  border-radius: var(--radius-lg);
+  background: transparent;
+  padding-inline: 0.625rem;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.phone-field.PhoneInput:focus-within {
+  border-color: var(--color-ring);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-ring) 20%, transparent);
+}
+
+.phone-field .PhoneInputInput {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--text-body);
+  color: var(--color-foreground);
+}
+
+.phone-field .PhoneInputInput::placeholder {
+  color: var(--color-muted-foreground);
+}
+
+.phone-field .PhoneInputCountry {
+  position: relative;
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.phone-field .PhoneInputCountryIcon {
+  width: 1.5rem;
+  height: 1.125rem;
+  overflow: hidden;
+  border-radius: 2px;
+  box-shadow: none;
+}
+
+.phone-field .PhoneInputCountrySelectArrow {
+  opacity: 0.6;
+  color: var(--color-muted-foreground);
+}
+
+.phone-field .PhoneInputCountrySelect {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.contact-form-accent .phone-field.PhoneInput {
+  border-color: color-mix(in srgb, var(--color-primary-foreground) 35%, transparent);
+}
+
+.contact-form-accent .phone-field.PhoneInput:focus-within {
+  border-color: var(--color-primary-foreground);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary-foreground) 20%, transparent);
+}
+
+.contact-form-accent .phone-field .PhoneInputInput,
+.contact-form-accent .phone-field .PhoneInputCountrySelectArrow {
+  color: var(--color-primary-foreground);
+}
+
+/* GSAP ScrollSmoother's required wrapper/content structure. SiteHeader stays
+   outside this pair (see layout.tsx) since it's position: fixed and must not
+   sit inside the transformed #smooth-content. */
+#smooth-wrapper {
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#smooth-content {
+  overflow: visible;
+  width: 100%;
+}
