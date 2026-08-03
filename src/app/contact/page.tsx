@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { UpdatesCta } from "@/components/sections/careers-cta";
+import { NewsletterCta } from "@/components/sections/newsletter-cta";
 import { ContactHero } from "@/components/sections/contact-hero";
 import { ContactForm } from "@/components/forms/contact-form";
 import { buildMetadata } from "@/lib/seo";
@@ -17,7 +17,7 @@ export default function ContactPage() {
     <>
       <ContactHero />
       <ContactForm />
-      <UpdatesCta />
+      <NewsletterCta />
     </>
   );
 }

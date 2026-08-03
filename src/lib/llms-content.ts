@@ -62,7 +62,6 @@ export function buildLlmsFull(): string {
     "",
     "## Contact",
     `Email: ${contact.email}`,
-    `Phone: ${contact.phone}`,
     `Location: ${contact.location}`,
     "",
     "## Pages",

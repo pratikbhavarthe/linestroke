@@ -27,7 +27,7 @@ function ChipOption({
     <label
       htmlFor={id}
       className={cn(
-        "inline-flex cursor-pointer items-center rounded-full border px-4 py-2 text-body font-medium transition-colors select-none",
+        "inline-flex cursor-pointer items-center rounded-full border px-4 py-2 text-body font-medium transition-colors select-none has-focus-visible:outline has-focus-visible:outline-2 has-focus-visible:outline-offset-2 has-focus-visible:outline-current",
         tone === "accent"
           ? checked
             ? "border-background bg-background text-foreground"

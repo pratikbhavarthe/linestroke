@@ -46,9 +46,6 @@ function ClosingCta({ accent = false }: ClosingCtaProps) {
           <a href={`mailto:${contact.email}`} className={cn("transition-colors", accent ? "hover:text-primary-foreground" : "hover:text-foreground-dark")}>
             {contact.email}
           </a>
-          <a href={`tel:${contact.phone.replace(/\s+/g, "")}`} className={cn("transition-colors", accent ? "hover:text-primary-foreground" : "hover:text-foreground-dark")}>
-            {contact.phone}
-          </a>
           <span>{contact.location}</span>
         </div>
       </Container>

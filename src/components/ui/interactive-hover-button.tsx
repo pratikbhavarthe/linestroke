@@ -30,7 +30,7 @@ export function InteractiveHoverButton({
           {label}
         </span>
       </div>
-      <div className="text-primary-foreground relative z-10 col-start-1 row-start-1 flex translate-x-[150%] items-center justify-center gap-2 whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
+      <div aria-hidden="true" className="text-primary-foreground relative z-10 col-start-1 row-start-1 flex translate-x-[150%] items-center justify-center gap-2 whitespace-nowrap opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100">
         <span>{label}</span>
         <ArrowRight className="size-4 shrink-0" />
       </div>

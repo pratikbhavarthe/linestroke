@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import studioImage from "@/app/assets/group.jpeg";
+import studioImage from "@/app/assets/studio.webp";
 import { ClosingCta } from "@/components/sections/closing-cta";
 import { PageHeader } from "@/components/sections/page-header";
 import { StudioStats } from "@/components/sections/studio-stats";

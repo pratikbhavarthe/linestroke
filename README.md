@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Linestroke website
 
-## Getting Started
+Production website for Linestroke, built with Next.js 16, React 19, TypeScript, Tailwind CSS 4, Motion, GSAP, and Zod.
 
-First, run the development server:
+## Local setup
+
+Requirements: Node.js 22 and pnpm 10.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+cp .env.example .env.local
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`. Form requests are validated locally but successful delivery requires real HTTPS webhook URLs in `.env.local`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quality gates
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm lint
+pnpm typecheck
+pnpm test:coverage
+pnpm build
+```
 
-## Learn More
+`pnpm check` runs the full sequence. CI executes the same gates for pull requests and pushes to `main`.
 
-To learn more about Next.js, take a look at the following resources:
+## Form delivery
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `POST /api/contact` validates inquiries and forwards them to `CONTACT_WEBHOOK_URL`.
+- `POST /api/newsletter` validates subscriptions and forwards them to `NEWSLETTER_WEBHOOK_URL`.
+- `FORM_WEBHOOK_TOKEN` is sent as a bearer token when configured.
+- Both routes enforce JSON, same-origin browser requests, a honeypot, payload limits, and a per-instance rate limit.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+For multi-instance production deployments, add provider-level or distributed rate limiting (for example Vercel Firewall/Rate Limiting, Cloudflare, or a Redis-backed limiter). Never expose webhook credentials through `NEXT_PUBLIC_*` variables.
 
-## Deploy on Vercel
+## Deployment checklist
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Set the three form environment variables in the production platform.
+2. Confirm `https://linestroke.com` matches the canonical domain in `src/lib/site-config.ts`.
+3. Configure platform WAF/rate limits for `/api/contact` and `/api/newsletter`.
+4. Connect error monitoring and privacy-respecting analytics before launch.
+5. Submit `/sitemap.xml` to search consoles and verify `/robots.txt`.
+6. Review the privacy policy with counsel and configure webhook retention/deletion rules.
+7. Run `pnpm check` and manually test keyboard, mobile, reduced-motion, and form flows.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Content ownership
+
+Portfolio summaries, statistics, service claims, and legal copy must be verified by Linestroke before publication. Avoid adding testimonials, client logos, or project outcomes without documented permission.
