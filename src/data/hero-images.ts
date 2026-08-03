@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image";
 
-import heroLed from "@/app/assets/2.png";
-import heroDetail from "@/app/assets/1.31.png";
+import heroLed from "@/app/assets/scooter-side.webp";
+import heroDetail from "@/app/assets/scooter-detail.webp";
 import heroClay from "@/app/assets/clay-brisk.jpeg";
 
 export interface HeroImage {

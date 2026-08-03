@@ -158,11 +158,15 @@ function ScrollVelocityRowImpl({
   })
 
   useAnimationFrame((_, delta) => {
-    if (!isInViewRef.current || !isPageVisibleRef.current) return
+    if (
+      !isInViewRef.current ||
+      !isPageVisibleRef.current ||
+      prefersReducedMotionRef.current
+    ) return
     const dt = delta / 1000
     const vf = scrollReactivity ? velocityFactor.get() : 0
     const absVf = Math.min(5, Math.abs(vf))
-    const speedMultiplier = prefersReducedMotionRef.current ? 1 : 1 + absVf
+    const speedMultiplier = 1 + absVf
 
     if (absVf > 0.1) {
       const scrollDirection = vf >= 0 ? 1 : -1

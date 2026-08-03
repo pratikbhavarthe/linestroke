@@ -38,9 +38,12 @@ export default function FaqPage() {
       <JsonLd data={faqJsonLd} />
       <section className="border-b border-white/10 bg-background pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-48">
         <Container>
-          <h1 className="mx-auto max-w-[92rem] text-center font-display text-[clamp(4rem,10.5vw,11rem)] leading-none font-medium tracking-[-0.075em] text-primary uppercase">
-            <span className="block">Frequently</span>
-            <span className="mt-[0.08em] block">Asked questions</span>
+          <h1
+            aria-label="Frequently Asked Questions"
+            className="mx-auto max-w-[92rem] text-center font-display text-[clamp(4rem,10.5vw,11rem)] leading-[0.88] font-medium tracking-[-0.075em] text-primary uppercase"
+          >
+            <span aria-hidden="true" className="block">Frequently</span>
+            <span aria-hidden="true" className="mt-[0.14em] block">Asked questions</span>
           </h1>
           <p className="mx-auto mt-12 max-w-2xl text-center font-display text-[clamp(1.25rem,1.8vw,1.75rem)] leading-tight text-foreground sm:mt-16">
             Curious about what we do or how it works?<br />

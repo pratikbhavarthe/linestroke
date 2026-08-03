@@ -40,7 +40,7 @@ function SiteFooter() {
   return (
     <footer
       ref={ref}
-      className="relative min-h-[70rem] overflow-hidden bg-background text-foreground md:min-h-[100svh]"
+      className="relative min-h-[58rem] overflow-hidden bg-background text-foreground md:min-h-[100svh]"
     >
       <div
         aria-hidden
@@ -115,14 +115,6 @@ function SiteFooter() {
                     {contact.email}
                   </a>
                 </li>
-                <li>
-                  <a
-                    href={`tel:${contact.phone.replace(/\s+/g, "")}`}
-                    className="text-body-lg font-medium transition-colors hover:text-foreground/60"
-                  >
-                    {contact.phone}
-                  </a>
-                </li>
                 <li className="text-body-lg font-medium text-foreground/70">
                   {contact.location}
                 </li>
@@ -145,9 +137,12 @@ function SiteFooter() {
       </p>
 
       <Container className="absolute inset-x-0 bottom-0 z-20 py-6">
-        <p className="font-mono text-meta text-foreground-dark/50">
-          © {year} Linestroke. All rights reserved.
-        </p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-meta text-foreground-dark/50">
+            <p>© {year} Linestroke. All rights reserved.</p>
+            <Link className="transition-colors hover:text-foreground" href="/privacy">
+              Privacy
+            </Link>
+          </div>
       </Container>
     </footer>
   )

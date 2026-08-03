@@ -10,9 +10,11 @@ interface PhoneFieldProps {
   value?: Value
   onChange: (value?: Value) => void
   required?: boolean
+  "aria-invalid"?: boolean
+  "aria-describedby"?: string
 }
 
-function PhoneField({ id, name, value, onChange, required }: PhoneFieldProps) {
+function PhoneField({ id, name, value, onChange, required, ...accessibilityProps }: PhoneFieldProps) {
   return (
     <PhoneInput
       id={id}
@@ -26,6 +28,7 @@ function PhoneField({ id, name, value, onChange, required }: PhoneFieldProps) {
       value={value}
       onChange={onChange}
       className="phone-field"
+      {...accessibilityProps}
     />
   )
 }

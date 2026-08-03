@@ -25,6 +25,9 @@
   --input: #2a2a2a;
   --ring: #c6f200;
   --radius: 0.25rem;
+  --font-inter: "Inter Variable", system-ui, sans-serif;
+  --font-jakarta: "Plus Jakarta Sans Variable", system-ui, sans-serif;
+  --font-red-hat-mono: "Red Hat Mono", ui-monospace, monospace;
 
   /* Custom — dark-surface sections (hero, closing CTA) */
   --surface-dark: #080808;
@@ -256,20 +259,4 @@
 .contact-form-accent .phone-field .PhoneInputInput,
 .contact-form-accent .phone-field .PhoneInputCountrySelectArrow {
   color: var(--color-primary-foreground);
-}
-
-/* GSAP ScrollSmoother's required wrapper/content structure. SiteHeader stays
-   outside this pair (see layout.tsx) since it's position: fixed and must not
-   sit inside the transformed #smooth-content. */
-#smooth-wrapper {
-  overflow: hidden;
-  position: fixed;
-  inset: 0;
-  height: 100%;
-  width: 100%;
-}
-
-#smooth-content {
-  overflow: visible;
-  width: 100%;
 }

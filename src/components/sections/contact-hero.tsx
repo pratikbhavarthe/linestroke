@@ -8,9 +8,12 @@ function ContactHero() {
           Get in touch
         </p>
 
-        <h1 className="mt-8 font-display text-[clamp(4rem,11.5vw,13.5rem)] leading-[0.78] font-medium tracking-[-0.07em] text-primary uppercase">
-          <span className="block">Let&apos;s talk</span>
-          <span className="block">product design</span>
+        <h1
+          aria-label="Let's talk product design"
+          className="mt-8 font-display text-[clamp(4rem,11.5vw,13.5rem)] leading-[0.86] font-medium tracking-[-0.07em] text-primary uppercase"
+        >
+          <span aria-hidden="true" className="block">Let&apos;s talk</span>
+          <span aria-hidden="true" className="mt-[0.1em] block">product design</span>
         </h1>
 
         <p className="mt-10 max-w-2xl text-pretty text-body-lg text-foreground">

@@ -40,9 +40,9 @@ function ProjectCard({ project, className, priority = false }: ProjectCardProps)
       </div>
 
       <div className="mt-4 flex items-baseline justify-between gap-6">
-        <h3 className="font-display text-h3 font-medium text-primary">
+        <h2 className="font-display text-h3 font-medium text-primary">
           {project.title}
-        </h3>
+        </h2>
         <span className="shrink-0 font-mono text-meta text-muted-foreground">
           {project.year}
         </span>

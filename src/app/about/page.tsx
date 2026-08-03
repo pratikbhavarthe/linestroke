@@ -2,11 +2,11 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 
-import scooterDetailImage from "@/app/assets/1.31.png"
-import scooterFrontImage from "@/app/assets/15.png"
-import scooterFrontMobileImage from "@/app/assets/4.png"
+import scooterDetailImage from "@/app/assets/scooter-detail.webp"
+import scooterFrontImage from "@/app/assets/scooter-front.webp"
+import scooterFrontMobileImage from "@/app/assets/scooter-mobile.webp"
 import clayModelImage from "@/app/assets/clay-brisk2.jpeg"
-import studioImage from "@/app/assets/group.jpeg"
+import studioImage from "@/app/assets/studio.webp"
 import { AboutMissionReveal } from "@/components/sections/about-mission-reveal"
 import { ClosingCta } from "@/components/sections/closing-cta"
 import { Container } from "@/components/ui/container"
@@ -38,12 +38,12 @@ export default function AboutPage() {
     <>
       <section className="overflow-hidden pt-28 md:min-h-[100svh] md:pt-36">
         <Container className="flex flex-col gap-20 pb-12 md:min-h-[calc(100svh-9rem)] md:justify-between md:gap-0">
-          <p className="font-display text-[clamp(3.35rem,8.5vw,10rem)] leading-[0.8] font-medium tracking-[-0.075em] text-primary uppercase">
+          <h1 className="font-display text-[clamp(3.35rem,8.5vw,10rem)] leading-[0.8] font-medium tracking-[-0.075em] text-primary uppercase">
             <span className="block">Beyond the</span>
             <span className="block">limits of</span>
             <span className="block">product</span>
             <span className="block">design</span>
-          </p>
+          </h1>
 
           <div className="grid grid-cols-1 gap-8 pt-16 md:grid-cols-12 md:items-end md:gap-8">
             <div className="md:col-start-6 md:col-span-7">
@@ -60,7 +60,6 @@ export default function AboutPage() {
               src={studioImage}
               alt="The Linestroke design team developing a vehicle concept in the studio"
               fill
-              priority
               sizes="100vw"
               className="object-cover grayscale"
             />
