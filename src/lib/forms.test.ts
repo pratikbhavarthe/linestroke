@@ -1,6 +1,17 @@
 import { describe, expect, it } from "vitest";
 
-import { contactSchema, flattenFieldErrors, newsletterSchema } from "@/lib/forms";
+import { contactSchema, flattenFieldErrors, isHoneypotFilled, newsletterSchema } from "@/lib/forms";
+
+describe("isHoneypotFilled", () => {
+  it.each([
+    [{ website: "bot.example" }, true],
+    [{ website: "" }, false],
+    [{}, false],
+    [{ website: 1 }, false],
+    [null, false],
+    ["website", false],
+  ])("detects %j as %s", (body, expected) => expect(isHoneypotFilled(body)).toBe(expected));
+});
 
 const validContact = {
   name: "Priya Sharma",

@@ -7,7 +7,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "next typegen && tsc --noEmit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "check": "pnpm lint && pnpm typecheck && pnpm test && pnpm build"
@@ -45,11 +45,5 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.10"
-  },
-  "pnpm": {
-    "overrides": {
-      "postcss": "8.5.25",
-      "sharp": "0.35.3"
-    }
   }
 }

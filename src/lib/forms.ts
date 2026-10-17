@@ -29,6 +29,12 @@ export const newsletterSchema = z.object({
 export type ContactSubmission = z.infer<typeof contactSchema>
 export type NewsletterSubmission = z.infer<typeof newsletterSchema>
 
+/** True when the hidden `website` field was filled, which only bots do. */
+export function isHoneypotFilled(body: unknown) {
+  if (typeof body !== "object" || body === null || !("website" in body)) return false
+  return typeof body.website === "string" && body.website.length > 0
+}
+
 export function flattenFieldErrors(error: z.ZodError) {
   return error.issues.reduce<Record<string, string>>((errors, issue) => {
     const field = issue.path[0]

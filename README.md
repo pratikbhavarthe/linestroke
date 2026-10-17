@@ -4,7 +4,7 @@ Production website for Linestroke, built with Next.js 16, React 19, TypeScript, 
 
 ## Local setup
 
-Requirements: Node.js 22 and pnpm 10.
+Requirements: Node.js 22 and pnpm 10 or newer. Dependency overrides live in `pnpm-workspace.yaml`.
 
 ```bash
 cp .env.example .env.local
@@ -30,7 +30,7 @@ pnpm build
 - `POST /api/contact` validates inquiries and forwards them to `CONTACT_WEBHOOK_URL`.
 - `POST /api/newsletter` validates subscriptions and forwards them to `NEWSLETTER_WEBHOOK_URL`.
 - `FORM_WEBHOOK_TOKEN` is sent as a bearer token when configured.
-- Both routes enforce JSON, same-origin browser requests, a honeypot, payload limits, and a per-instance rate limit.
+- Both routes enforce JSON, same-origin browser requests, a 16 KB body limit, a honeypot (bots get a fake success), and a per-instance rate limit keyed on `x-real-ip` (falling back to `x-forwarded-for`).
 
 For multi-instance production deployments, add provider-level or distributed rate limiting (for example Vercel Firewall/Rate Limiting, Cloudflare, or a Redis-backed limiter). Never expose webhook credentials through `NEXT_PUBLIC_*` variables.
 
@@ -47,3 +47,7 @@ For multi-instance production deployments, add provider-level or distributed rat
 ## Content ownership
 
 Portfolio summaries, statistics, service claims, and legal copy must be verified by Linestroke before publication. Avoid adding testimonials, client logos, or project outcomes without documented permission.
+
+## Content Security Policy
+
+The CSP is a static header set in `next.config.ts`, so every page stays statically prerendered. Next.js bootstraps with inline scripts, so `script-src` includes `'unsafe-inline'`. A nonce-based CSP would require dynamically rendering every page (see `node_modules/next/dist/docs/01-app/02-guides/content-security-policy.md`).

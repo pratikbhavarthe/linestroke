@@ -91,7 +91,7 @@ function ContactForm() {
   return (
     <section id="inquiry-form" className="contact-form-accent bg-primary py-section text-primary-foreground">
       <Container>
-        <form ref={formRef} onSubmit={handleSubmit} noValidate className="max-w-5xl">
+        <form ref={formRef} method="post" onSubmit={handleSubmit} noValidate className="max-w-5xl">
           <div className="sr-only" aria-hidden="true">
             <label htmlFor="website">Website</label>
             <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
