@@ -1,21 +1,25 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useSyncExternalStore } from "react"
 
-function getInitialReducedMotion() {
-  if (typeof window === "undefined") return false
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches
+const QUERY = "(prefers-reduced-motion: reduce)"
+
+function subscribe(onChange: () => void) {
+  const query = window.matchMedia(QUERY)
+  query.addEventListener("change", onChange)
+  return () => query.removeEventListener("change", onChange)
+}
+
+function getSnapshot() {
+  return window.matchMedia(QUERY).matches
+}
+
+// The server can't know the preference; React swaps in the real value right
+// after hydration instead of producing a hydration mismatch.
+function getServerSnapshot() {
+  return false
 }
 
 export function useReducedMotion() {
-  const [reduced, setReduced] = useState(getInitialReducedMotion)
-
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)")
-    const handleChange = (event: MediaQueryListEvent) => setReduced(event.matches)
-    query.addEventListener("change", handleChange)
-    return () => query.removeEventListener("change", handleChange)
-  }, [])
-
-  return reduced
+  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }

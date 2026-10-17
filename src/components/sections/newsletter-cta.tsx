@@ -40,7 +40,7 @@ function NewsletterCta() {
             <h2 className="mt-5 max-w-[38rem] text-pretty font-display text-[clamp(1.7rem,2.2vw,2.5rem)] leading-[1.12] font-medium tracking-[-0.03em] text-foreground">Product design insights, engineering thinking, and Linestroke updates straight to your inbox.</h2>
           </div>
 
-          <form onSubmit={handleSubmit} noValidate className="w-full md:pt-2">
+          <form method="post" onSubmit={handleSubmit} noValidate className="w-full md:pt-2">
             <div className="sr-only" aria-hidden="true">
               <label htmlFor="newsletter-website">Website</label>
               <input id="newsletter-website" value={website} onChange={(event) => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off" />
