@@ -141,6 +141,11 @@
   outline-offset: 2px;
 }
 
+/* The header is a light bar, where the Sky Blue outline would disappear. */
+header :focus-visible:not([data-slot]) {
+  outline-color: var(--color-signal);
+}
+
 .sr-only-focusable {
   position: absolute;
   width: 1px;

@@ -21,7 +21,7 @@ function MobileMenu() {
         <Button
           variant="ghost"
           size="icon"
-          className="size-11 md:hidden"
+          className="size-11 text-ink hover:bg-ink/5 hover:text-ink lg:hidden"
           aria-label="Open menu"
         >
           <MenuIcon className="size-5" />
