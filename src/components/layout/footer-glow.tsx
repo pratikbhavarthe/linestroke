@@ -37,12 +37,12 @@ function FooterGlow() {
           <feGaussianBlur stdDeviation="15" />
         </filter>
         <linearGradient id="footer-glow-fill" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0" stopColor="#4c4c35" />
-          <stop offset="0.2" stopColor="#858839" />
-          <stop offset="0.4" stopColor="#dfb836" />
-          <stop offset="0.6" stopColor="#ffe270" />
-          <stop offset="0.78" stopColor="#dcff3e" />
-          <stop offset="1" stopColor="#dcff3e" stopOpacity="0" />
+          <stop offset="0" stopColor="#1f2b52" />
+          <stop offset="0.25" stopColor="#2b438d" />
+          <stop offset="0.5" stopColor="#7d9fd8" />
+          <stop offset="0.76" stopColor="#c9e4ff" />
+          <stop offset="0.92" stopColor="#ffbcf9" />
+          <stop offset="1" stopColor="#ffbcf9" stopOpacity="0" />
         </linearGradient>
       </defs>
 

@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Industrial design and engineering for production-ready physical products.",
     start_url: "/",
     display: "standalone",
-    background_color: "#080808",
-    theme_color: "#080808",
+    background_color: "#222222",
+    theme_color: "#222222",
     icons: [{ src: "/favicon.ico", sizes: "any", type: "image/x-icon" }],
   }
 }

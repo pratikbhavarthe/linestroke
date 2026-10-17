@@ -14,7 +14,7 @@ function ClosingCta({ accent = false }: ClosingCtaProps) {
     <section
       className={cn(
         "py-section-lg",
-        accent ? "bg-primary text-primary-foreground" : "bg-surface-dark"
+        accent ? "bg-primary text-primary-foreground" : "bg-signal"
       )}
     >
       <Container className="grid grid-cols-1 gap-16 md:grid-cols-12 md:gap-8">
@@ -40,7 +40,7 @@ function ClosingCta({ accent = false }: ClosingCtaProps) {
         <div
           className={cn(
             "flex flex-col gap-4 font-mono text-body md:col-span-4 md:items-end md:text-right",
-            accent ? "text-primary-foreground/70" : "text-foreground-dark/70"
+            accent ? "text-primary-foreground/85" : "text-foreground-dark/70"
           )}
         >
           <a href={`mailto:${contact.email}`} className={cn("transition-colors", accent ? "hover:text-primary-foreground" : "hover:text-foreground-dark")}>

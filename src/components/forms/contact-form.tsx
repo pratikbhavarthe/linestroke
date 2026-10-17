@@ -86,7 +86,7 @@ function ContactForm() {
     }
   }
 
-  const inputClassName = "h-12 border-primary-foreground/35 bg-transparent text-primary-foreground focus-visible:border-primary-foreground focus-visible:ring-primary-foreground/20 dark:bg-transparent"
+  const inputClassName = "h-12 border-primary-foreground/50 bg-transparent text-primary-foreground focus-visible:border-primary-foreground focus-visible:ring-primary-foreground/20 dark:bg-transparent"
 
   return (
     <section id="inquiry-form" className="contact-form-accent bg-primary py-section text-primary-foreground">
@@ -99,7 +99,7 @@ function ContactForm() {
 
           <fieldset>
             <legend className="font-display text-h2 font-medium text-balance">I&apos;m looking for help with</legend>
-            <p className="mt-2 font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-primary-foreground/70">Choose your options below</p>
+            <p className="mt-2 font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-primary-foreground/85">Choose your options below</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {capabilities.map((capability) => (
                 <ChipOption key={capability.index} id={`service-${capability.index}`} name="services" value={capability.title} label={capability.title} checked={services.includes(capability.title)} onChange={toggleService} tone="accent" />
@@ -140,8 +140,8 @@ function ContactForm() {
                 <Field>
                   <FieldLabel htmlFor="purpose">Tell us about your project</FieldLabel>
                   <div className="relative">
-                    <Textarea id="purpose" name="purpose" rows={5} maxLength={PURPOSE_MAX_LENGTH} placeholder="What are you building, and what do you need help with?" className="field-sizing-fixed resize-none border-primary-foreground/35 bg-transparent pb-7 text-primary-foreground placeholder:text-primary-foreground/55 focus-visible:border-primary-foreground focus-visible:ring-primary-foreground/20 dark:bg-transparent" onChange={(event) => setPurposeLength(event.target.value.length)} aria-invalid={Boolean(fieldErrors.purpose)} aria-describedby={fieldErrors.purpose ? "purpose-error" : "purpose-count"} />
-                    <span id="purpose-count" className="pointer-events-none absolute right-3 bottom-2 font-mono text-meta text-primary-foreground/65">{purposeLength}/{PURPOSE_MAX_LENGTH}</span>
+                    <Textarea id="purpose" name="purpose" rows={5} maxLength={PURPOSE_MAX_LENGTH} placeholder="What are you building, and what do you need help with?" className="field-sizing-fixed resize-none border-primary-foreground/50 bg-transparent pb-7 text-primary-foreground placeholder:text-primary-foreground/75 focus-visible:border-primary-foreground focus-visible:ring-primary-foreground/20 dark:bg-transparent" onChange={(event) => setPurposeLength(event.target.value.length)} aria-invalid={Boolean(fieldErrors.purpose)} aria-describedby={fieldErrors.purpose ? "purpose-error" : "purpose-count"} />
+                    <span id="purpose-count" className="pointer-events-none absolute right-3 bottom-2 font-mono text-meta text-primary-foreground/85">{purposeLength}/{PURPOSE_MAX_LENGTH}</span>
                   </div>
                   <FieldError id="purpose-error" message={fieldErrors.purpose} />
                 </Field>
@@ -151,7 +151,7 @@ function ContactForm() {
 
           <fieldset className="mt-12">
             <legend className="font-display text-h2 font-medium text-balance">I found Linestroke through</legend>
-            <p className="mt-2 font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-primary-foreground/70">Select one option below</p>
+            <p className="mt-2 font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-primary-foreground/85">Select one option below</p>
             <div className="mt-6 flex flex-wrap gap-3">
               {referralSources.map((source) => (
                 <ChipOption key={source} id={`referral-${source}`} name="referralSource" type="radio" value={source} label={source} checked={referralSource === source} onChange={(value) => setReferralSource(value)} tone="accent" />
@@ -161,7 +161,7 @@ function ContactForm() {
 
           <div className="mt-10">
             <InteractiveHoverButton disabled={status === "submitting"} type="submit" className="border-background text-foreground disabled:cursor-wait disabled:opacity-60">{status === "submitting" ? "Sending…" : "Submit form"}</InteractiveHoverButton>
-            <p className="mt-4 max-w-xl text-sm text-primary-foreground/75">By submitting, you agree to our <a className="underline underline-offset-4" href="/privacy">Privacy Policy</a>.</p>
+            <p className="mt-4 max-w-xl text-sm text-primary-foreground/85">By submitting, you agree to our <a className="underline underline-offset-4" href="/privacy">Privacy Policy</a>.</p>
             <p aria-live="polite" role={status === "error" ? "alert" : "status"} className="mt-4 min-h-6 font-medium">{statusMessage}</p>
           </div>
         </form>

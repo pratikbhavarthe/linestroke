@@ -15,7 +15,7 @@ function Hero() {
 
       <Container className="relative py-20">
         <div>
-          <p className="font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-foreground-dark/60">
+          <p className="font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-pink">
             Industrial Design &amp; Engineering
           </p>
           <h1 className="mt-6 font-display text-display font-medium text-balance text-primary">
