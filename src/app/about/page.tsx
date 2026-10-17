@@ -71,7 +71,7 @@ export default function AboutPage() {
       <section className="bg-primary py-section-lg text-primary-foreground">
         <Container>
           <div className="flex flex-col items-center gap-8">
-            <div className="text-center font-mono text-meta uppercase text-primary-foreground/70">
+            <div className="text-center font-mono text-meta uppercase text-primary-foreground/85">
               <p>More about us</p>
               <p className="mt-2">10+ years industry experience</p>
             </div>
@@ -210,14 +210,14 @@ export default function AboutPage() {
 
       <section className="bg-primary py-section-lg text-primary-foreground">
         <Container>
-          <p className="font-mono text-meta uppercase text-primary-foreground/65">About us in numbers</p>
+          <p className="font-mono text-meta uppercase text-primary-foreground/85">About us in numbers</p>
           <div className="mt-8 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-0">
             {stats.map((stat) => (
               <div key={stat.label} className="border-t border-primary-foreground/25 pt-6 md:border-r md:px-8 md:first:pl-0 md:last:border-r-0">
                 <p className="font-display text-[clamp(5rem,10vw,11rem)] leading-none tracking-[-0.07em]">
                   {stat.value}
                 </p>
-                <p className="mt-5 font-mono text-meta uppercase text-primary-foreground/70">
+                <p className="mt-5 font-mono text-meta uppercase text-primary-foreground/85">
                   {stat.label}
                 </p>
               </div>

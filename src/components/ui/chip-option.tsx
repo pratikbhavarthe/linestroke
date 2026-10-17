@@ -31,7 +31,7 @@ function ChipOption({
         tone === "accent"
           ? checked
             ? "border-background bg-background text-foreground"
-            : "border-primary-foreground/35 bg-transparent text-primary-foreground/80 hover:border-primary-foreground hover:text-primary-foreground"
+            : "border-primary-foreground/50 bg-transparent text-primary-foreground/85 hover:border-primary-foreground hover:text-primary-foreground"
           : checked
             ? "border-primary bg-primary text-primary-foreground"
             : "border-border bg-transparent text-foreground/80 hover:border-primary/50 hover:text-foreground"

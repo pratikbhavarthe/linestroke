@@ -20,11 +20,11 @@ function AboutMissionReveal() {
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
       if (reducedMotion) {
-        gsap.set(words, { color: "#c6f200" })
+        gsap.set(words, { color: "#c9e4ff" })
         return
       }
 
-      gsap.set(words, { color: "rgba(198, 242, 0, 0.14)" })
+      gsap.set(words, { color: "rgba(201, 228, 255, 0.14)" })
 
       const trigger = ScrollTrigger.create({
         trigger: scope.current,
@@ -35,7 +35,7 @@ function AboutMissionReveal() {
           words.forEach((word, index) => {
             const wordProgress = Math.min(1, Math.max(0, self.progress * words.length - index))
             const alpha = 0.14 + wordProgress * 0.86
-            gsap.set(word, { color: `rgba(198, 242, 0, ${alpha})` })
+            gsap.set(word, { color: `rgba(201, 228, 255, ${alpha})` })
           })
         },
       })

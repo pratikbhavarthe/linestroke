@@ -22,8 +22,8 @@ function PrimaryNav() {
       </ul>
       <NavLink
         href={ctaItem.href}
-        activeClassName="text-primary-foreground"
-        className="ml-1 rounded-xl bg-[#9EC900] px-5 py-2.5 font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-primary-foreground transition-colors hover:bg-[#8DB500]"
+        activeClassName="bg-pink text-signal"
+        className="ml-1 rounded-xl bg-signal px-5 py-2.5 font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-sky transition-colors hover:bg-pink hover:text-signal"
       >
         {ctaItem.label}
       </NavLink>

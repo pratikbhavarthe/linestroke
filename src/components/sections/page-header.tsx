@@ -25,7 +25,7 @@ function PageHeader({ eyebrow, title, lead, image, imageAlt }: PageHeaderProps) 
         <div className="absolute inset-0 bg-surface-dark/55" />
 
         <Container className="relative py-16 md:py-20">
-          <p className="font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-foreground-dark/60">
+          <p className="font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-pink">
             {eyebrow}
           </p>
           <h1 className="mt-6 max-w-3xl text-balance font-display text-h1 font-medium text-primary">
@@ -44,7 +44,7 @@ function PageHeader({ eyebrow, title, lead, image, imageAlt }: PageHeaderProps) 
   return (
     <section className="border-b border-border bg-background pt-32 pb-16 md:pt-40 md:pb-20">
       <Container>
-        <p className="font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-muted-foreground">
+        <p className="font-mono text-meta uppercase tracking-(--text-meta--letter-spacing) text-pink">
           {eyebrow}
         </p>
         <h1 className="mt-6 max-w-3xl text-balance font-display text-h1 font-medium text-primary">

@@ -16,7 +16,7 @@ const footerBlocks = [
 ] as const
 
 const wordmarkGradientStyle = {
-  backgroundImage: "linear-gradient(to top, #080808 0%, #c6f200 100%)",
+  backgroundImage: "linear-gradient(to top, #222222 0%, #c9e4ff 100%)",
   WebkitBackgroundClip: "text",
   backgroundClip: "text",
   color: "transparent",
